@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="__sync_contentCategory" content="meterA">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
+
+    <%= t.include("partials/_head.html") %>
+
+  </head>
+
+  <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
+
+    <div class="outer">
+
+      <div class="float-img-container">
+        <div class="float-img right sidebar">
+
+          <div id="sidebar-link">
+            <i class="fa fa-external-link sidebar-fa" aria-hidden="true"></i>
+            <div class="sidebar-text"><span class="bold">This is some text about how you need to click right away.</span></div>
+            <div class="floating-img">
+              <img src="../assets/photos/aftermath.jpg"></img>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sidebar">
+        <div id="sidebar-content">
+            <i id="large" class="fa fa-times fa-2x sidebar-fa" aria-hidden="true"></i></a>
+            <div class="full-sidebar-text">
+              <div class="floating-img">
+                <img src="../assets/photos/aftermath.jpg"></img>
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="app.js" async></script>
+    <%= t.include("partials/_helloSFC.html") %>
+
+  </body>
+</html>
