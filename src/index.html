@@ -1,51 +1,79 @@
 <!doctype html>
 <html>
-  <head>
-    <title><%= json.project.seo_title %></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="__sync_contentCategory" content="meterA">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
 
-    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
 
-    <%= t.include("partials/_head.html") %>
 
-  </head>
 
-  <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel=stylesheet>
+   <link href="http://projects.sfchronicle.com/2017/bein-pdf/style.css" rel=stylesheet>
+   <link rel="stylesheet" type="text/css" href="style.css">
 
-    <div class="outer">
-
-      <div class="float-img-container">
-        <div class="float-img right sidebar">
-
-          <div id="sidebar-link">
-            <i class="fa fa-external-link sidebar-fa" aria-hidden="true"></i>
-            <div class="sidebar-text"><span class="bold">This is some text about how you need to click right away.</span></div>
-            <div class="floating-img">
-              <img src="../assets/photos/aftermath.jpg"></img>
-            </div>
-          </div>
-        </div>
+   <script src="http://projects.sfchronicle.com/shared/js/jquery.min.js"></script>
+   
+   <div id='links'>
+      <p class="sidebar-text">The Chronicle covers the first dogs to serve in the SFPD</p> 
+      <div class='floating-images'>
+         <div id='one' class="pdf"><img src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-1.jpg"></div>
+         <div id='two' class="pdf"><img src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-sultan-1.jpg"> </div>
+         <div id='three' class="pdf"><img src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-sultan-dies-1.jpg"> </div>
       </div>
+   </div>
 
-      <div id="sidebar">
-        <div id="sidebar-content">
-            <i id="large" class="fa fa-times fa-2x sidebar-fa" aria-hidden="true"></i></a>
-            <div class="full-sidebar-text">
-              <div class="floating-img">
-                <img src="../assets/photos/aftermath.jpg"></img>
-              </div>
+
+
+   <div id='sidebar-one'>
+      <div class='sidebar-content'>
+         <i aria-hidden='true' class="fa fa-2x fa-times sidebar-fa" id='large'></i> 
+         <div class='full-sidebar-text'>
+         <p>May 11, 1962: After several earlier attempts, SFPD chief Thomas J. Cahill laid out his plan for the department’s first K-9 corps.</p>
+            <div class='floating-img'>
+               <img src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-1.jpg"> 
             </div>
-        </div>
+         </div>
       </div>
+   </div>
 
-    </div>
 
-    <script src="app.js" async></script>
-    <%= t.include("partials/_helloSFC.html") %>
+   <div id='sidebar-two'>
+      <div class='sidebar-content'>
+         <i aria-hidden='true' class="fa fa-2x fa-times sidebar-fa" id='large'></i> 
+         <div class='full-sidebar-text'>
+         <p>Dec. 31, 1962: SFPD dog Sultan helps capture a burglary suspect, also the first high-profile assist by a member of the SFPD K-9 corps.</p>
+            <div class='floating-img clearfix'>
+               <img class="two-page" src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-sultan-1.jpg"><img class="two-page" src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-sultan-2.jpg"> 
+            </div>
+         </div>
+      </div>
+   </div>
 
-  </body>
+   <div id='sidebar-three'>
+      <div class='sidebar-content'>
+         <i aria-hidden='true' class="fa fa-2x fa-times sidebar-fa" id='large'></i> 
+         <div class='full-sidebar-text'>
+         <p>Sept. 9, 1963: Sultan the SFPD K-9 pioneer dies during a search for a man thought to have committed suicide on the Golden Gate Bridge.</p>
+            <div class='floating-img clearfix'>
+               <img class="two-page" src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-sultan-dies-1.jpg"><img class="two-page" src="http://projects.sfchronicle.com/2017/bein-pdf/oursf-k9-sultan-dies-2.jpg"> 
+            </div>
+         </div>
+      </div>
+   </div>
+<script>
+
+
+
+   $( ".pdf" ).click(function() {
+     var pdfID = $( this ).attr('id');
+     var one = $('#sidebar-' + pdfID);
+     console.log(one);
+     $('#sidebar-' + pdfID).show();
+     $('body').css('overflow', 'hidden');
+   });
+
+   $('.fa-times').click(function(){
+      $("*[id^=sidebar]").hide();
+      $('body').css('overflow', 'scroll');
+   });
+
+
+</script>
 </html>
